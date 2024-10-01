@@ -12,4 +12,16 @@ public class Mail {
         this.remitente = remitente;
         this.destinatario = destinatario;
     }
+    public String getTitulo(){
+        return titulo;
+    }
+    public String getMensaje(){
+        return mensaje;
+    }
+    public String getRemitente(){
+        return remitente;
+    }
+    public ArrayList<String> getDestinatario(){
+        return destinatario;
+    }
 }
