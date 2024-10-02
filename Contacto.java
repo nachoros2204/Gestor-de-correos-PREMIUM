@@ -36,4 +36,16 @@ public void setApellido(String apellido){
 public string getApellido(){
     return persona.getApellido();
 }
+
+@Override
+public void setDirecciondeCorreo(String direccionDeCorreo) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'setDirecciondeCorreo'");
+}
+
+@Override
+public String getSurname() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getSurname'");
+}
 }
