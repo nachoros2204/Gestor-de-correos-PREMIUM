@@ -11,5 +11,4 @@ public MailManager(){
 public void mandarMail(de, Mail mail){
     ArrayList<String> mailDireccion = mail.getDestinatario()
     List<User> 
-
 }

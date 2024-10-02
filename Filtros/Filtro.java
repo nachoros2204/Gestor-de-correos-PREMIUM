@@ -1,4 +1,4 @@
-public class Filtro implements INameable {
+public class Filtro implements INombre {
     private String nombre = "";
 
     protected ArrayList<Correo> buscarString(String buscar, Buzon buzon) {

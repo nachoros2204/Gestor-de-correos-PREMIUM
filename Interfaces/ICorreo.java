@@ -1,4 +1,4 @@
-package Interfaces;
+ package Interfaces;
 
  public interface ICorreo {
     void setDirecciondeCorreo(String direccionDeCorreo);
