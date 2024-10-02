@@ -2,8 +2,5 @@
  package Interfaces;
 
  public interface ICorreo {
-    void setCorreo(String correo);
-    String getCorreo();
-
-    
-}
+    void setDirecciondeCorreo(String direccionDeCorreo);
+    String getDireccionDeCorreo();
