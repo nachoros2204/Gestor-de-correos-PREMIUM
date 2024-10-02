@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Box {
+public class Caja {
     private ArrayList<Mail> mails = new ArrayList<>();
-    public int size(){
-        return mails.size();
+    public int tamaño(){
+        return mails.tamaño();
     }
     
 }
