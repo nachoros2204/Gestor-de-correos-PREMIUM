@@ -1,3 +1,4 @@
+
 import Interfaces.ICorreo;
 import Interfaces.INombre;
 import Interfaces.IApellido;
@@ -12,12 +13,12 @@ public class Contacto implements IApellido, INombre, ICorreo {
         persona.setDireccionDeCorreo(direccionDeCorreo);
     }
     
-    public void setDireccionDeCorreo(string direccionDeCorreo){
+    public void setDireccionDeCorreo(String direccionDeCorreo){
     persona.setDireccionDeCorreo(direccionDeCorreo);
-    return null;
+    return;
 }
 
-public string getDireccionDeCorreo(){
+public String getDireccionDeCorreo(){
     return persona.getDireccionDeCorreo();
 }
 
@@ -25,7 +26,7 @@ public void setNombre(String nombre){
     persona.setNombre(nombre);
 }
 
-public string getNombre(){
+public String getNombre(){
     return persona.getNombre();
 }
 
@@ -33,7 +34,7 @@ public void setApellido(String apellido){
     persona.setApellido(apellido);
 }
 
-public string getApellido(){
+public String getApellido(){
     return persona.getApellido();
 }
 
