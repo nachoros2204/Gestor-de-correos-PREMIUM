@@ -3,9 +3,9 @@ import Interfaces.ICorreo;
 import Interfaces.INombre;
 
 public class Persona implements INombre, IApellido, ICorreo{
-    private string nombre;
-    private string surname;
-    private string direccionDeCorreo;
+    private String nombre;
+    private String surname;
+    private String direccionDeCorreo;
 
     
     public Persona(String nombre, String apellido, String direccionDeCorreo){
