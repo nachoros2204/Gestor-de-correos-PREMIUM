@@ -1,3 +1,5 @@
+import Interfaces.INombre;
+
 public class Filtro implements INombre {
     private String nombre = "";
 
