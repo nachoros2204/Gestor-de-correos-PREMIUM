@@ -1,4 +1,4 @@
-package GestorCorreo;
+package main;
 
 import GestorCorreo.Filtros.*;
 import GestorCorreo.Interfaces.IDireccion;
