@@ -3,17 +3,18 @@ import java.util.ArrayList;
 
 public class Caja {
     private ArrayList<Mail> mails = new ArrayList<>();
-    public int tamaño(){
-        return mails.tamaño();
+    
+    public int size() { 
+        return mails.size(); 
+    
+    public void add(Mail mail) { 
+        mails.add(mail); 
+    }
+
+    public Mail get(int index) {
+        return mails.get(index); 
     }
     
-    public void agregar(Mail mail){
-        mails.agregar(mail);
+    public ArrayList<Mail> getAll() { 
     }
-}
-public Mail get(int index){
-    return mails.get(index);
-}
-public ArrayList<Mail> getTodo(){
-    return mails;
 }
