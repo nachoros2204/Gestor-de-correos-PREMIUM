@@ -1,4 +1,4 @@
-package Interfaces;
+package main.Interfaces;
 
     public interface INombre {
         void setNombre(String nache);

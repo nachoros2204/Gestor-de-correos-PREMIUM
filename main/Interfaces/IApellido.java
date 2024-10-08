@@ -1,4 +1,4 @@
-package Interfaces;
+package main.Interfaces;
 
 public interface IApellido {
     void setApellido(String apellido);

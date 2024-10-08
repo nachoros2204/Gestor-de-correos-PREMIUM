@@ -1,8 +1,10 @@
-package main;
+package Tests;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import main.Contacto;
 
 public class ContactoTests {
     @Test

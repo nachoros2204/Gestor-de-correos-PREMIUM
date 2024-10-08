@@ -1,8 +1,8 @@
 package main;
 
-import Interfaces.ICorreo;
-import Interfaces.INombre;
-import Interfaces.IApellido;
+import main.Interfaces.IApellido;
+import main.Interfaces.ICorreo;
+import main.Interfaces.INombre;
 
 public class Contacto implements IApellido, INombre, ICorreo {
     private Persona persona = new Persona ("","","");

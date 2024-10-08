@@ -1,7 +1,7 @@
 package main;
-import Interfaces.IApellido;
-import Interfaces.ICorreo;
-import Interfaces.INombre;
+import main.Interfaces.IApellido;
+import main.Interfaces.ICorreo;
+import main.Interfaces.INombre;
 
 public class Persona implements INombre, IApellido, ICorreo{
     private string nombre;
