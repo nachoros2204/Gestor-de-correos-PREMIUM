@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import main.MailManager;
 import main.Usuario;
 
-
 public class EnviarCorreosTest { 
     @Test
     public void crear_aplicacion_y_enviar_correo() {

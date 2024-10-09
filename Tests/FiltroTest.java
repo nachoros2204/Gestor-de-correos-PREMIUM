@@ -18,20 +18,20 @@ public class FiltroTest {
 
     @Test
     public void filtrar_por_asunto() {
-        // Agregar contactos
+        // Agrega contactos
         nacho.agregarNuevoContacto("Juani", "Gualtieri", "juani@gmail.com");
         nacho.agregarNuevoContacto("Lourdes", "GomezSierra", "lourdesgomezsierra@gmail.com");
 
-        // Crear y enviar mensajes
+        // Crea y envia mensajes
         ArrayList<String> contactos = nacho.getTodosLosCorreosDeContactos();
         nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Mensaje de prueba", contactos);
         
-        // También enviar otro mensaje con el mismo asunto
+        // Tambien envia otro mensaje con el mismo asunto
         ArrayList<String> destinatarios = new ArrayList<>();
         destinatarios.add("juani@gmail.com");
         nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Otro mensaje", destinatarios);
 
-        // Filtrar por asunto
+        // Filtra por asunto
         FiltroDeTitulo filtro = new FiltroDeTitulo();
         ArrayList<Mail> resultado = nacho.filtrarEnviados("AsuntoBuscado", filtro);
 

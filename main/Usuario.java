@@ -78,7 +78,6 @@ public class Usuario implements INombre, IApellido, ICorreo {
     public void crearMensaje(MailManager gestorCorreo, String asunto, String mensaje, ArrayList<String> destinatarios) {
         Mail nuevoMail = new Mail(asunto, mensaje, this.getDireccionCorreo(), destinatarios);
         gestorCorreo.mandarMail(this, nuevoMail);  // Envía el correo a los destinatarios
-        this.agregarCorreoAEnviados(nuevoMail);  // Añadir a la bandeja de salida
     }
     
     

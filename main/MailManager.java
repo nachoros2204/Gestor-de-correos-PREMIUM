@@ -9,10 +9,10 @@ public class MailManager {
 public void mandarMail(Usuario remitente, Mail correo){
     ArrayList<String> direccionesCorreo = correo.getDestinatario();
     List<Usuario> usuariosCoinciden = buscarUsuariosPorCorreos(direccionesCorreo);
-    remitente.agregarCorreoAEnviados(correo);
+    remitente.agregarCorreoAEnviados(correo);   //Agrega el correo a la bandeja de enviados del remitente
 
     for(Usuario usuario : usuariosCoinciden){
-        usuario.agregarCorreoARecibidos(correo);
+        usuario.agregarCorreoARecibidos(correo);    //Agrega el correo a la bandeja de recibidos del destinatario
     }
 }
 
