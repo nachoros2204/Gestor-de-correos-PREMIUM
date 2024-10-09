@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class MailManager {
     private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 
-public void mandarMail(Usuario remitente, Correo correo){
+public void mandarMail(Usuario remitente, Mail correo){
     ArrayList<String> direccionesCorreo = correo.getDestinatario();
     List<Usuario> usuariosCoinciden = buscarUsuariosPorCorreos(direccionesCorreo);
     remitente.agregarCorreoAEnviados(correo);
@@ -16,7 +16,7 @@ public void mandarMail(Usuario remitente, Correo correo){
     }
 }
 
-private List<Usuario> buscarUsuariosPorCorreo(ArrayList<String> correos) {
+private List<Usuario> buscarUsuariosPorCorreos(ArrayList<String> correos) {
     List <Usuario> usuariosCoinciden = listaUsuarios.stream()
     .filter(usuario -> correos.stream()
         .anyMatch(correo -> usuario.getDireccionCorreo().equals(correo)))
