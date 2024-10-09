@@ -12,4 +12,9 @@ public class Caja {
     public ArrayList<Mail> getTodo() {
         return correos;
     }
+
+    // Método size() para obtener el número de correos
+    public int size() {
+        return correos.size();
+    }
 }
