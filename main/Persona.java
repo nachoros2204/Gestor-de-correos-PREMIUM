@@ -13,21 +13,21 @@ public class Persona implements INombre, IApellido, ICorreo{
         this.apellido = apellido;
         this.setDireccionDeCorreo(direccionDeCorreo);
     }
-    public void setNombre(String nombre){ //para establedcer el nombre
+    public void setNombre(String nombre){ //para establecer el nombre
         this.nombre = nombre;
     }
     
-    public void setApellido(String apellido){//para establedcer el apellido
+    public void setApellido(String apellido){//para establecer el apellido
         this.apellido = apellido;
     }
     
-public void setDireccionDeCorreo(String direccionDeCorreo){//para establedcer el correo
+public void setDireccionDeCorreo(String direccionDeCorreo){//para establecer el correo
 
-if(direccionDeCorreo.contains("@")){ // si no contiene arroba, pone arrobaucpptocom
+if(direccionDeCorreo.contains("@")){ // si no contiene arroba, pone arrobagmailptocom
     this.direccionDeCorreo = direccionDeCorreo;
     
 } else {
-    this.direccionDeCorreo = direccionDeCorreo + "@ucp.com";
+    this.direccionDeCorreo = direccionDeCorreo + "@gmail.com";
 }
 }
 
