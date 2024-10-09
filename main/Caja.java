@@ -6,7 +6,7 @@ public class Caja {
     
     public int size() { 
         return mails.size(); 
-    
+    }
     public void add(Mail mail) { 
         mails.add(mail); 
     }
@@ -16,5 +16,6 @@ public class Caja {
     }
     
     public ArrayList<Mail> getAll() { 
+        return mails;
     }
 }

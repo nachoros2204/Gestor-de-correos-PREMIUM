@@ -31,7 +31,7 @@ public void testSetNombreGetNombre() {
 }
 
 @Test
-public void testSetGetNombre() {
+public void testSetGetApellido() {
     Contacto contacto = new Contacto("Juan", "Johnson", "juane@gmail.com");
     
     contacto.setApellido("NuevoApellido");

@@ -1,28 +1,36 @@
+package main.Filtros;
+
+import java.util.ArrayList;
 import main.Interfaces.INombre;
+import main.Mail;
 
 public class Filtro implements INombre {
     private String nombre = "";
-
-    protected ArrayList<Correo> buscarString(String buscar, Buzon buzon) {
-        return null;
-    }
+    protected ArrayList<Mail> buscarString(String buscar, ArrayList<Mail> correos) {
+        ArrayList<Mail> resultados = new ArrayList<>();
+        for (Mail correo : correos) {  // Usamos la lista de correos directamente
+            if (correo.getTitulo().contains(buscar) || correo.getMensaje().contains(buscar)) {
+                resultados.add(correo);
+            }
+        }
+        return resultados;
 }
-
-public ArrayList<Correo> filtrar (String buscarTitulo, String buscarOtro, Buzon buzon){
-    buscarString(buscarTitulo, buzon);
-    buscarString(buscarOtro, buzon);
-    return null;
+// Metodo para filtrar correos segun multiples criterios
+public ArrayList<Mail> filtrar(String buscarTitulo, String buscarOtro, ArrayList<Mail> correos) {
+    ArrayList<Mail> resultados = new ArrayList<>();
+    resultados.addAll(buscarString(buscarTitulo, correos));
+    resultados.addAll(buscarString(buscarOtro, correos));
+    return resultados;
 }
-
-public ArrayList<Correo> filtrar (String buscar, Buzon buzon){
-    ArrayList<Correo> correos = buscarString(buscar, buzon);
-    return correos;
+// Metodo para filtrar correos segun un solo criterio
+public ArrayList<Mail> filtrar(String buscar, ArrayList<Mail> correos) {
+    return buscarString(buscar, correos);
 }
-
+// Metodos de la interfaz INombre
 public void setNombre (String nombre){
     this.nombre = nombre;
 }
-
 public String getNombre(){
     return nombre;
 }
+} 
