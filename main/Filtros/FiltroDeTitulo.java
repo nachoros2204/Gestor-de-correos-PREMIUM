@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-import GestorCorreo.*;
-import java.util.stream.Collectors;
+package main.Filtros;
 
-import Filtro.Filtro;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import main.Mail;
 
 public class FiltroDeTitulo extends Filtro {
 
@@ -11,10 +11,10 @@ public class FiltroDeTitulo extends Filtro {
     }
 
     @Override
-     protected ArrayList<Correo> buscarString(String buscar, Buzon buzon) {
-          ArrayList<Correo> correos = buzon.getTodo().stream()
-                  .filter(correo -> correo.getTitulo().contains(buscar))
-                  .collect(Collectors.toCollection(ArrayList::new)); // Colecciona los correos filtrados en un ArrayList
-          return correos; // Retorna el ArrayList con los correos filtrados
-      }
+     protected ArrayList<Mail> buscarString(String buscar, ArrayList<Mail> correos) {
+       // Filtra los correos que tienen el remitente que contiene el texto buscado
+        return correos.stream()
+        .filter(correo -> correo.getRemitente().contains(buscar))
+        .collect(Collectors.toCollection(ArrayList::new)); // Colecciona los correos filtrados en un ArrayList
+}
 }

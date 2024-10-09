@@ -1,7 +1,8 @@
+package main.Filtros;
+
 import java.util.ArrayList;
 
-import Filtro.Filtro;
-import GestorCorreo.*;
+import main.Mail;
 
 public class FiltroDeTituloYRemitente extends Filtro {
     public FiltroDeTituloYRemitente(){
@@ -9,14 +10,14 @@ public class FiltroDeTituloYRemitente extends Filtro {
     }
 
     @Override
-    public ArrayList<Correo> filtrar(String buscarTitulo, String buscarOtro, Buzon buzon) {
+    public ArrayList<Mail> filtrar(String buscarTitulo, String buscarOtro, ArrayList<Mail> correos) {
         FiltroDeTitulo filtroTitulo = new FiltroDeTitulo();
         FiltroDeRemitente filtroRemitente = new FiltroDeRemitente();
 
-        ArrayList<Correo> resultadosTitulo = filtroTitulo.filtrar(buscarTitulo, buzon);
-        ArrayList<Correo> resultadosRemitente = filtroRemitente.filtrar(buscarOtro, buzon);
+        ArrayList<Mail> resultadosTitulo = filtroTitulo.filtrar(buscarTitulo, correos);
+        ArrayList<Mail> resultadosRemitente = filtroRemitente.filtrar(buscarOtro, correos);
 
-        ArrayList<Correo> resultado = new ArrayList<>(resultadosTitulo);
+        ArrayList<Mail> resultado = new ArrayList<>(resultadosTitulo);
         resultado.retainAll(resultadosRemitente);
 
         return resultado;

@@ -1,5 +1,9 @@
+package main.Filtros;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
+
+import main.Mail;
 
 public class FiltroDeMensaje extends Filtro {
     
@@ -8,10 +12,10 @@ public class FiltroDeMensaje extends Filtro {
     }
 
     @Override
-    protected ArrayList<Correo> buscarString (String buscar, Buzon buzon) {
-        ArrayList<Correo> correos = buzon.getTodo().stream()
+    protected ArrayList<Mail> buscarString (String buscar, ArrayList<Mail> correos) {
+        // Filtra los correos que contienen el texto buscado en el mensaje
+        return correos.stream()
             .filter(correo -> correo.getMensaje().contains(buscar))
             .collect(Collectors.toCollection(ArrayList::new));
-        return correos;
     }
 }
