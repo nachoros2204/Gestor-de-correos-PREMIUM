@@ -4,10 +4,9 @@ import main.Interfaces.ICorreo;
 import main.Interfaces.INombre;
 
 public class Persona implements INombre, IApellido, ICorreo{
-    private string nombre;
-    private string apellido;
-    private string direccionDeCorreo;
-
+    private String nombre;
+    private String apellido;
+    private String direccionDeCorreo;
     
     public Persona(String nombre, String apellido, String direccionDeCorreo){
         this.nombre = nombre;
@@ -30,7 +29,6 @@ if(direccionDeCorreo.contains("@")){ // si no contiene arroba, pone arrobaucppto
 } else {
     this.direccionDeCorreo = direccionDeCorreo + "@ucp.com";
 }
-return; 
 }
 
 public String getNombre(){
@@ -43,4 +41,14 @@ public String getDireccionDeCorreo(){
     return direccionDeCorreo;
 
 }
+
+    @Override
+    public String getSurname() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void setDirecciondeCorreo(String direccionDeCorreo) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

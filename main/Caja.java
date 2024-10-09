@@ -1,21 +1,15 @@
 package main;
+
 import java.util.ArrayList;
 
 public class Caja {
-    private ArrayList<Mail> mails = new ArrayList<>();
-    
-    public int size() { 
-        return mails.size(); 
-    }
-    public void add(Mail mail) { 
-        mails.add(mail); 
+    private final ArrayList<Mail> correos = new ArrayList<>();
+
+    public void agregarCorreo(Mail correo) {
+        correos.add(correo);
     }
 
-    public Mail get(int index) {
-        return mails.get(index); 
-    }
-    
-    public ArrayList<Mail> getAll() { 
-        return mails;
+    public ArrayList<Mail> getTodo() {
+        return correos;
     }
 }

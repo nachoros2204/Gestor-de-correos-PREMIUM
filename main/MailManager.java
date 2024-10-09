@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MailManager {
-    private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    private final ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 
 public void mandarMail(Usuario remitente, Mail correo){
     ArrayList<String> direccionesCorreo = correo.getDestinatario();

@@ -27,10 +27,12 @@ public ArrayList<Mail> filtrar(String buscar, ArrayList<Mail> correos) {
     return buscarString(buscar, correos);
 }
 // Metodos de la interfaz INombre
-public void setNombre (String nombre){
+    @Override
+    public void setNombre (String nombre){
     this.nombre = nombre;
 }
-public String getNombre(){
+    @Override
+    public String getNombre(){
     return nombre;
 }
 } 
