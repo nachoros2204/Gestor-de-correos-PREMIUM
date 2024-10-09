@@ -10,7 +10,7 @@ import main.Usuario;
 import java.util.ArrayList;
 
 public class FiltroTest {
-    
+
     MailManager gestorCorreo = new MailManager(); 
     Usuario nacho = gestorCorreo.crearNuevoUsuario("Nacho", "Rosales", "nacho@gmail.com");
     Usuario lourdes = gestorCorreo.crearNuevoUsuario("Lourdes", "GomezSierra", "lourdesgomezsierra@gmail.com");
@@ -18,49 +18,72 @@ public class FiltroTest {
 
     @Test
     public void filtrar_por_asunto() {
+        // Agregar contactos
         nacho.agregarNuevoContacto("Juani", "Gualtieri", "juani@gmail.com");
         nacho.agregarNuevoContacto("Lourdes", "GomezSierra", "lourdesgomezsierra@gmail.com");
 
+        // Crear y enviar mensajes
         ArrayList<String> contactos = nacho.getTodosLosCorreosDeContactos();
         nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Mensaje de prueba", contactos);
-
+        
+        // También enviar otro mensaje con el mismo asunto
         ArrayList<String> destinatarios = new ArrayList<>();
         destinatarios.add("juani@gmail.com");
-        nacho.crearMensaje(gestorCorreo, "OtroAsunto", "Otro mensaje", destinatarios); 
+        nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Otro mensaje", destinatarios);
 
+        // Filtrar por asunto
         FiltroDeTitulo filtro = new FiltroDeTitulo();
         ArrayList<Mail> resultado = nacho.filtrarEnviados("AsuntoBuscado", filtro);
-        assertEquals(1, resultado.size());
+
+        assertEquals(2, resultado.size());  // Se espera 2 mensajes
     }
 
     @Test
     public void filtrar_por_mensaje() {
-        nacho.crearMensaje(gestorCorreo, "Mensaje a Lourdes", "Hola Lourdes", "lourdesgomezsierra@gmail.com");
-        nacho.crearMensaje(gestorCorreo, "Otro mensaje a Lourdes", "Chau Lourdes", "lourdesgomezsierra@gmail.com");
-     
+        // Crear y enviar mensajes
+        ArrayList<String> destinatarios = new ArrayList<>();
+        destinatarios.add("lourdesgomezsierra@gmail.com");
+        nacho.crearMensaje(gestorCorreo, "Mensaje a Lourdes", "Hola Lourdes", destinatarios);
+        nacho.crearMensaje(gestorCorreo, "Otro mensaje a Lourdes", "Chau Lourdes", destinatarios);
+
+        // Filtrar por mensaje
         FiltroDeMensaje filtro = new FiltroDeMensaje();
         ArrayList<Mail> resultado = lourdes.filtrarRecibidos("Hola", filtro);
-        assertEquals(1, resultado.size());
+
+        assertEquals(1, resultado.size());  
     }
 
     @Test
     public void filtrar_por_remitente() {
-        nacho.crearMensaje(gestorCorreo, "Mensaje", "Contenido", "juani@gmail.com");
-        lourdes.crearMensaje(gestorCorreo, "Otro mensaje", "Más contenido", "nacho@gmail.com");
+        // Crear mensajes
+        ArrayList<String> destinatarios1 = new ArrayList<>();
+        destinatarios1.add("juani@gmail.com");
+        nacho.crearMensaje(gestorCorreo, "Mensaje", "Contenido", destinatarios1);
 
+        ArrayList<String> destinatarios2 = new ArrayList<>();
+        destinatarios2.add("nacho@gmail.com");
+        lourdes.crearMensaje(gestorCorreo, "Otro mensaje", "Más contenido", destinatarios2);
+
+        // Filtrar por remitente
         FiltroDeRemitente filtro = new FiltroDeRemitente();
         ArrayList<Mail> resultado = juani.filtrarRecibidos("nacho@gmail.com", filtro);
-        assertEquals(1, resultado.size());
+
+        assertEquals(1, resultado.size());  
     }
 
     @Test
     public void filtrar_por_asunto_y_mensaje() {
-        nacho.crearMensaje(gestorCorreo, "Asunto", "Mensaje", "juani@gmail.com");
-        lourdes.crearMensaje(gestorCorreo, "OtroAsunto", "OtroMensaje", "nacho@gmail.com");
+        // Crear mensajes
+        ArrayList<String> destinatarios = new ArrayList<>();
+        destinatarios.add("juani@gmail.com");
+        nacho.crearMensaje(gestorCorreo, "Asunto", "Mensaje", destinatarios);
+        lourdes.crearMensaje(gestorCorreo, "OtroAsunto", "Mensaje", destinatarios);
 
+        // Filtrar por asunto y mensaje
         FiltroDeTituloYMensaje filtro = new FiltroDeTituloYMensaje();
         ArrayList<Mail> resultado = filtro.filtrar("Asunto", "Mensaje", juani.getEntrada().getTodo());
-        assertEquals(1, resultado.size());
+
+        assertEquals(1, resultado.size());  // Se espera 1 mensaje
     }
 
     @Test
