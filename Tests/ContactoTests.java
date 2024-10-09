@@ -32,7 +32,7 @@ public void testSetNombreGetNombre() {
 
 @Test
 public void testSetGetApellido() {
-    Contacto contacto = new Contacto("Juan", "Johnson", "juane@gmail.com");
+    Contacto contacto = new Contacto("Juani", "Gualtieri", "juani@gmail.com");
     
     contacto.setApellido("NuevoApellido");
     assertEquals("NuevoApellido", contacto.getApellido());
