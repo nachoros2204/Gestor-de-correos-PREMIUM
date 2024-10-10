@@ -77,7 +77,7 @@ public class FiltroTest {
         ArrayList<String> destinatarios = new ArrayList<>();
         destinatarios.add("juani@gmail.com");
         nacho.crearMensaje(gestorCorreo, "Asunto", "Mensaje", destinatarios);
-        lourdes.crearMensaje(gestorCorreo, "OtroAsunto", "Mensaje", destinatarios);
+        lourdes.crearMensaje(gestorCorreo, "Otro", "Mensaje", destinatarios);
 
         // Filtrar por asunto y mensaje
         FiltroDeTituloYMensaje filtro = new FiltroDeTituloYMensaje();
