@@ -1,8 +1,8 @@
-package main.Filtros;
+package main.filtros;
 
 import java.util.ArrayList;
-import main.Interfaces.INombre;
 import main.Mail;
+import main.interfaces.INombre;
 
 public class Filtro implements INombre {
     private String nombre = "";

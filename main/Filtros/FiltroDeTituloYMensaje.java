@@ -1,7 +1,6 @@
-package main.Filtros;
+package main.filtros;
 
 import java.util.ArrayList;
-
 import main.Mail;
 
 public class FiltroDeTituloYMensaje extends Filtro {

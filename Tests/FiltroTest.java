@@ -1,11 +1,12 @@
-package Tests;
+package tests;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import main.Filtros.*;
+
 import main.Mail;
 import main.MailManager;
 import main.Usuario;
+import main.filtros.*;
 
 import java.util.ArrayList;
 

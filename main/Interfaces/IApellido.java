@@ -1,6 +1,10 @@
-package main.Interfaces;
+package main.interfaces;
 
 public interface IApellido {
     void setApellido(String apellido);
-    String getSurname();
+    String getApellido();
 }
+
+
+
+

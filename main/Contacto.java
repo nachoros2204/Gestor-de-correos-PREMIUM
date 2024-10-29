@@ -1,8 +1,8 @@
 package main;
 
-import main.Interfaces.IApellido;
-import main.Interfaces.ICorreo;
-import main.Interfaces.INombre;
+import main.interfaces.IApellido;
+import main.interfaces.ICorreo;
+import main.interfaces.INombre;
 
 public class Contacto implements IApellido, INombre, ICorreo {
     private final Persona persona;
@@ -11,39 +11,34 @@ public class Contacto implements IApellido, INombre, ICorreo {
         persona = new Persona(nombre, apellido, direccionDeCorreo);
     }
 
-    public void setDireccionDeCorreo(String direccionDeCorreo) {
-        persona.setDireccionDeCorreo(direccionDeCorreo);
-    }
-
+    @Override
     public String getDireccionDeCorreo() {
         return persona.getDireccionDeCorreo();
     }
 
+    @Override
     public void setNombre(String nombre) {
         persona.setNombre(nombre);
     }
 
+    @Override
     public String getNombre() {
         return persona.getNombre();
     }
 
+    @Override
     public void setApellido(String apellido) {
         persona.setApellido(apellido);
     }
 
-    
-    public String getApellido() {
-        return persona.getApellido();
-    }
-
     // Implementación del método de la interfaz IApellido
     @Override
-    public String getSurname() {
-        return getApellido(); // Retorna el apellido como el "surname"
+    public String getApellido() {
+        return persona.getApellido();// Retorna el apellido como el "surname"
     }
 
     @Override
     public void setDirecciondeCorreo(String direccionDeCorreo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        persona.setDireccionDeCorreo(direccionDeCorreo);
     }
 }

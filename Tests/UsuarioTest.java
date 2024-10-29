@@ -1,13 +1,8 @@
-package Tests;
+package tests;
+
+import main.Usuario;
 
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import main.Usuario;
-import main.MailManager;
-import main.Contacto;
 
 public class UsuarioTest {
     
