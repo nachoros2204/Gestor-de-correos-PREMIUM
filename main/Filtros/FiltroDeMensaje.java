@@ -2,7 +2,6 @@ package main.Filtros;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-
 import main.Mail;
 
 public class FiltroDeMensaje extends Filtro {

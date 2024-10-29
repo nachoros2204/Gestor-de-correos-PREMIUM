@@ -2,10 +2,14 @@ package Tests;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import main.Filtros.*;
+
 import main.Mail;
 import main.MailManager;
 import main.Usuario;
+import main.Filtros.FiltroDeMensaje;
+import main.Filtros.FiltroDeRemitente;
+import main.Filtros.FiltroDeTitulo;
+import main.Filtros.FiltroDeTituloYMensaje;
 
 import java.util.ArrayList;
 

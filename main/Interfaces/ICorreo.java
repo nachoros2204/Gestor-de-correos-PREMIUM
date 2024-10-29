@@ -1,6 +1,6 @@
  package main.Interfaces;
 
  public interface ICorreo {
-    void setDirecciondeCorreo(String direccionDeCorreo);
+    void setDireccionDeCorreo(String direccionDeCorreo);
     String getDireccionDeCorreo();
  }

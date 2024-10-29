@@ -1,15 +1,16 @@
 package Tests;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import main.Caja;
+import main.Mail;
+import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-
-import org.junit.Test;
-import main.Caja;
-import main.Mail;
-
 public class CajaTest {
+
     @Test
     public void testAgregarYObtenerCorreo() {
         Caja caja = new Caja();
@@ -39,7 +40,7 @@ public class CajaTest {
         caja.agregarCorreo(correo1);
         caja.agregarCorreo(correo2);
 
-        ArrayList<Mail> todosLosCorreos = caja.getTodo();
+        List<Mail> todosLosCorreos = caja.getTodo();
 
         assertEquals(2, todosLosCorreos.size());
         assertTrue(todosLosCorreos.contains(correo1));
