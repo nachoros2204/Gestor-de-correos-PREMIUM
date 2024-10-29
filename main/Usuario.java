@@ -1,10 +1,11 @@
 package main;
 
 import java.util.ArrayList;
-import main.filtros.Filtro;
-import main.interfaces.IApellido;
-import main.interfaces.ICorreo;
-import main.interfaces.INombre;
+
+import main.Filtros.Filtro;
+import main.Interfaces.IApellido;
+import main.Interfaces.ICorreo;
+import main.Interfaces.INombre;
 
 public class Usuario implements INombre, IApellido, ICorreo {
 
