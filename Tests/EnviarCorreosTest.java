@@ -1,9 +1,5 @@
 package Tests;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
-
 import main.MailManager;
 import main.Usuario;
 
@@ -24,5 +20,11 @@ public class EnviarCorreosTest {
         assertEquals(1, nacho.getSalida().size());
         assertEquals(1, lourdes.getEntrada().size());
         assertEquals(1, juani.getEntrada().size());
+        var enviadoLourdes = lourdes.getEntrada().getTodo().get(0);
+        enviadoLourdes.setTitulo("Aprobado");
+        assertEquals("Saludos", nacho.getSalida().getTodo().get(0).getTitulo());
+        assertEquals("Aprobado", lourdes.getEntrada().getTodo().get(0).getTitulo());
+        assertEquals("Saludos", juani.getEntrada().getTodo().get(0).getTitulo());
+       
     }
 }

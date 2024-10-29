@@ -2,12 +2,8 @@ package Tests;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import main.Caja;
 import main.Mail;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class CajaTest {
 
@@ -48,7 +44,7 @@ public class CajaTest {
     }
 
     @Test
-    public void testTamanoCajaVacia() {
+    public void testTamañoCajaVacia() {
         Caja caja = new Caja();
         assertEquals(0, caja.getTodo().size());
     }

@@ -3,7 +3,7 @@ package main;
 import java.util.ArrayList;
 
 public class Mail {
-    private final String titulo;
+    private String titulo;
     private final String mensaje;
     private final String remitente;
     private ArrayList<String> destinatario = new ArrayList<>();
@@ -17,6 +17,9 @@ public class Mail {
     public String getTitulo(){
         return titulo;
     }
+    public void setTitulo(String titulo){
+        this.titulo = titulo; 
+    }
     public String getMensaje(){
         return mensaje;
     }
@@ -25,5 +28,8 @@ public class Mail {
     }
     public ArrayList<String> getDestinatario(){
         return destinatario;
+    }
+    public Mail clonar() {
+        return new Mail(this.titulo, this.mensaje, this.remitente, this.destinatario);
     }
 }
