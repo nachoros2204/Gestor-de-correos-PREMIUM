@@ -47,7 +47,7 @@ public class CajaTest {
     }
 
     @Test
-    public void testTamanoCajaVacia() {
+    public void testTamañoCajaVacia() {
         Caja caja = new Caja();
         assertEquals(0, caja.getTodo().size());
     }
