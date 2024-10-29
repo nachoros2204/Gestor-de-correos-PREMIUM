@@ -8,11 +8,14 @@ public class Mail {
     private final String remitente;
     private ArrayList<String> destinatario = new ArrayList<>();
     
+    private boolean esFavorito;
+
     public Mail(String titulo, String mensaje, String remitente, ArrayList<String> destinatario){
         this.titulo = titulo;
         this.mensaje = mensaje;
         this.remitente = remitente;
         this.destinatario = destinatario;
+        this.esFavorito = false;
     }
     public String getTitulo(){
         return titulo;
@@ -32,4 +35,18 @@ public class Mail {
     public Mail clonar() {
         return new Mail(this.titulo, this.mensaje, this.remitente, this.destinatario);
     }
+
+    // getter para saber si el correo es favorito
+    public boolean esFavorito() {
+        return esFavorito;
+    }
+
+    // metodo para marcar o desmarcar el correo como favorito
+    public void marcarComoFavorito() {
+        esFavorito = !esFavorito;
+    }
+
+
+
+
 }
