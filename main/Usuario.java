@@ -1,7 +1,6 @@
 package main;
 
 import java.util.ArrayList;
-
 import main.Filtros.Filtro;
 import main.Interfaces.IApellido;
 import main.Interfaces.ICorreo;
@@ -95,7 +94,7 @@ public class Usuario implements INombre, IApellido, ICorreo {
         return filtro.filtrar(buscar, entrada.getTodo());
     }
     public ArrayList<Mail> getCorreosEnviados() {
-        ArrayList<Mail> correosEnviados;
+        ArrayList<Mail> correosEnviados = null;
         return correosEnviados;
     }
 
