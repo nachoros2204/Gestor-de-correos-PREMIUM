@@ -1,7 +1,5 @@
 package Tests;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
 import main.MailManager;
 
 public class GestorCorreoTest {

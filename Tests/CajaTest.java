@@ -2,12 +2,8 @@ package Tests;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import main.Caja;
 import main.Mail;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class CajaTest {
 
