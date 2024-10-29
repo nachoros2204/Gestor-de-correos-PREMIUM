@@ -1,10 +1,10 @@
 package Tests;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import main.GrupoDeUsuarios;
@@ -19,7 +19,7 @@ public class GrupoDeUsuariosTests {
     private Usuario usuario3;
     private GrupoDeUsuarios grupo;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         mailManager = new MailManager();
         usuario1 = mailManager.crearNuevoUsuario("John", "Doe", "john@example.com");
@@ -34,14 +34,14 @@ public class GrupoDeUsuariosTests {
 
     @Test
     public void testAgregarUsuarioAGrupo() {
-        assertTrue(grupo.getMiembros().contains(usuario1), "El grupo debería contener a usuario1");
-        assertTrue(grupo.getMiembros().contains(usuario2), "El grupo debería contener a usuario2");
+        assertTrue("El grupo debería contener a usuario1",grupo.getMiembros().contains(usuario1));
+        assertTrue( "El grupo debería contener a usuario2",grupo.getMiembros().contains(usuario2));
     }
 
     @Test
     public void testAgregarUsuarioExistenteAlGrupo() {
         grupo.agregarUsuarioAlGrupo(usuario1);
-        assertEquals(2, grupo.getMiembros().size(), "El grupo no debería duplicar usuarios ya existentes");
+        assertEquals(2,grupo.getMiembros().size());// DUDOSO "El grupo no debería duplicar usuarios ya existentes"
     }
 
     @Test
@@ -49,8 +49,8 @@ public class GrupoDeUsuariosTests {
         Mail correo = new Mail("Asunto", "Contenido", "john@example.com", new ArrayList<>());
         mailManager.mandarMailAGrupo(usuario1, correo, grupo);
 
-        assertTrue(usuario1.getCorreosEnviados().contains(correo), "Usuario1 debería tener el correo en enviados");
-        assertTrue(usuario2.getCorreosRecibidos().contains(correo), "Usuario2 debería tener el correo en recibidos");
+        assertTrue("Usuario1 debería tener el correo en enviados",usuario1.getCorreosEnviados().contains(correo));
+        assertTrue("Usuario2 debería tener el correo en recibidos", usuario2.getCorreosRecibidos().contains(correo));
     }
 
     @Test
@@ -60,6 +60,6 @@ public class GrupoDeUsuariosTests {
         Mail correo = new Mail("Asunto Nuevo", "Contenido Nuevo", "john@example.com", new ArrayList<>());
         mailManager.mandarMailAGrupo(usuario1, correo, grupo);
 
-        assertTrue(usuario3.getCorreosRecibidos().contains(correo), "Usuario3 debería tener el correo en recibidos");
+        assertTrue("Usuario3 debería tener el correo en recibidos", usuario3.getCorreosRecibidos().contains(correo));
     }
 }

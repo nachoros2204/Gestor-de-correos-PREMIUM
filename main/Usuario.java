@@ -13,8 +13,6 @@ public class Usuario implements INombre, IApellido, ICorreo {
     private final Caja entrada = new Caja();
     private final Caja salida = new Caja();
     private final Persona persona;
-    private ArrayList<Mail> correosEnviados = new ArrayList<>();
-    private ArrayList<Mail> correosRecibidos = new ArrayList<>();
 
     public Usuario(String nombre, String apellido, String direccionCorreo) {
         persona = new Persona(nombre, apellido, direccionCorreo);
@@ -96,6 +94,14 @@ public class Usuario implements INombre, IApellido, ICorreo {
     public ArrayList<Mail> filtrarRecibidos(String buscar, Filtro filtro) {
         return filtro.filtrar(buscar, entrada.getTodo());
     }
+    public ArrayList<Mail> getCorreosEnviados() {
+        ArrayList<Mail> correosEnviados;
+        return correosEnviados;
+    }
+
+    public ArrayList<Mail> getCorreosRecibidos() {
+        return getCorreosRecibidos();
+    }
 
     @Override
     public String getDireccionDeCorreo() {
@@ -105,13 +111,6 @@ public class Usuario implements INombre, IApellido, ICorreo {
     @Override
     public void setDireccionDeCorreo(String direccionDeCorreo) {
         persona.setDireccionDeCorreo(direccionDeCorreo); // Cambié para que llame al método correcto
-    }
-    public ArrayList<Mail> getCorreosEnviados() {
-        return correosEnviados;
-    }
-
-    public ArrayList<Mail> getCorreosRecibidos() {
-        return correosRecibidos;
     }
 
 }
