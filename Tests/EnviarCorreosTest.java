@@ -1,5 +1,10 @@
 package Tests;
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
+
+import org.junit.Test;
+
 import main.MailManager;
 import main.Usuario;
 
