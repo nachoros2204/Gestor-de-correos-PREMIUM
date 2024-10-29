@@ -13,6 +13,8 @@ public class Usuario implements INombre, IApellido, ICorreo {
     private final Caja entrada = new Caja();
     private final Caja salida = new Caja();
     private final Persona persona;
+    private ArrayList<Mail> correosEnviados = new ArrayList<>();
+    private ArrayList<Mail> correosRecibidos = new ArrayList<>();
 
     public Usuario(String nombre, String apellido, String direccionCorreo) {
         persona = new Persona(nombre, apellido, direccionCorreo);
@@ -104,4 +106,12 @@ public class Usuario implements INombre, IApellido, ICorreo {
     public void setDireccionDeCorreo(String direccionDeCorreo) {
         persona.setDireccionDeCorreo(direccionDeCorreo); // Cambié para que llame al método correcto
     }
+    public ArrayList<Mail> getCorreosEnviados() {
+        return correosEnviados;
+    }
+
+    public ArrayList<Mail> getCorreosRecibidos() {
+        return correosRecibidos;
+    }
+
 }

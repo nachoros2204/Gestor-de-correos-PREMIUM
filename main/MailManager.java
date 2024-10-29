@@ -39,4 +39,20 @@ public Usuario crearNuevoUsuario(String nombre, String apellido, String direccio
 public ArrayList<Usuario> getListaUsuarios() {
     return listaUsuarios;
 }
+public void mandarMailAGrupo(Usuario remitente, Mail correo, GrupoDeUsuarios grupo) {
+    remitente.agregarCorreoAEnviados(correo);  // Agrega el correo a enviados del remitente
+
+    for (Usuario usuario : grupo.getMiembros()) {
+        usuario.agregarCorreoARecibidos(correo);  // Agrega el correo a recibidos de cada miembro
+    }
+}
+
+private final ArrayList<GrupoDeUsuarios> listaGrupos = new ArrayList<>();
+public void agregarGrupo(GrupoDeUsuarios grupo) {
+    listaGrupos.add(grupo);
+}
+
+public List<GrupoDeUsuarios> getListaGrupos() {
+    return listaGrupos;
+}
 }
