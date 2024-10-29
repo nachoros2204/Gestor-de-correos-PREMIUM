@@ -1,7 +1,6 @@
 package main;
 
 import java.util.ArrayList;
-
 import main.filtros.Filtro;
 import main.interfaces.IApellido;
 import main.interfaces.ICorreo;
@@ -49,6 +48,7 @@ public class Usuario implements INombre, IApellido, ICorreo {
         persona.setApellido(apellido);
     }
 
+    @Override
     public String getApellido() {
         return persona.getApellido();
     }
@@ -100,12 +100,7 @@ public class Usuario implements INombre, IApellido, ICorreo {
     }
 
     @Override
-    public String getSurname() {
-        return persona.getApellido(); // Cambié para que devuelva el apellido
-    }
-
-    @Override
-    public void setDirecciondeCorreo(String direccionDeCorreo) {
+    public void setDireccionDeCorreo(String direccionDeCorreo) {
         persona.setDireccionDeCorreo(direccionDeCorreo); // Cambié para que llame al método correcto
     }
 }

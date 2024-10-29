@@ -12,6 +12,16 @@ public class Contacto implements IApellido, INombre, ICorreo {
     }
 
     @Override
+    public String getNombre() {
+        return persona.getNombre();
+    }
+
+    @Override
+    public String getApellido() {
+        return persona.getApellido();
+    }
+
+    @Override
     public String getDireccionDeCorreo() {
         return persona.getDireccionDeCorreo();
     }
@@ -21,24 +31,17 @@ public class Contacto implements IApellido, INombre, ICorreo {
         persona.setNombre(nombre);
     }
 
-    @Override
-    public String getNombre() {
-        return persona.getNombre();
-    }
+    
 
     @Override
     public void setApellido(String apellido) {
         persona.setApellido(apellido);
     }
 
-    // Implementación del método de la interfaz IApellido
-    @Override
-    public String getApellido() {
-        return persona.getApellido();// Retorna el apellido como el "surname"
-    }
+   
 
     @Override
-    public void setDirecciondeCorreo(String direccionDeCorreo) {
+    public void setDireccionDeCorreo(String direccionDeCorreo) {
         persona.setDireccionDeCorreo(direccionDeCorreo);
     }
 }
