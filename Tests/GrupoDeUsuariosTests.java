@@ -22,11 +22,11 @@ public class GrupoDeUsuariosTests {
     @Before
     public void setUp() {
         mailManager = new MailManager();
-        usuario1 = mailManager.crearNuevoUsuario("John", "Doe", "john@example.com");
-        usuario2 = mailManager.crearNuevoUsuario("Jane", "Smith", "jane@example.com");
-        usuario3 = mailManager.crearNuevoUsuario("Alice", "Johnson", "alice@example.com");
+        usuario1 = mailManager.crearNuevoUsuario("Nacho", "Rosales", "john@example.com");
+        usuario2 = mailManager.crearNuevoUsuario("Lourdes", "Smith", "jane@example.com");
+        usuario3 = mailManager.crearNuevoUsuario("Juani", "Johnson", "alice@example.com");
 
-        grupo = new GrupoDeUsuarios("Amigos");
+        grupo = new GrupoDeUsuarios ();
         grupo.agregarUsuarioAlGrupo(usuario1);
         grupo.agregarUsuarioAlGrupo(usuario2);
         mailManager.agregarGrupo(grupo);
@@ -46,7 +46,7 @@ public class GrupoDeUsuariosTests {
 
     @Test
     public void testMandarMailAGrupo() {
-        Mail correo = new Mail("Asunto", "Contenido", "john@example.com", new ArrayList<>());
+        Mail correo = new Mail("Asunto", "Contenido", "nacho@gmail.com", new ArrayList<>());
         mailManager.mandarMailAGrupo(usuario1, correo, grupo);
 
         assertTrue("Usuario1 debería tener el correo en enviados",usuario1.getCorreosEnviados().contains(correo));
