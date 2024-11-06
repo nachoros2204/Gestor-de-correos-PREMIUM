@@ -12,6 +12,7 @@ import main.GrupoDeUsuarios;
 import main.Mail;
 import main.MailManager;
 import main.Usuario;
+import main.Caja;
 
 public class GrupoDeUsuariosTests {
     private MailManager mailManager;
@@ -35,8 +36,8 @@ public class GrupoDeUsuariosTests {
 
     @Test
     public void testAgregarUsuarioAGrupo() {
-        assertTrue("El grupo debería contener a usuario1",grupo.getMiembros().contains(usuario1));
-        assertTrue( "El grupo debería contener a usuario2",grupo.getMiembros().contains(usuario2));
+        assertTrue(grupo.getMiembros().contains(usuario1));
+        assertTrue(grupo.getMiembros().contains(usuario2));
     }
 
     @Test
@@ -50,8 +51,8 @@ public class GrupoDeUsuariosTests {
         Mail correo = new Mail("Asunto", "Contenido", "nacho@gmail.com", new ArrayList<>());
         mailManager.mandarMailAGrupo(usuario1, correo, grupo);
 
-        assertTrue("Usuario1 debería tener el correo en enviados",usuario1.getCorreosEnviados().contains(correo));
-        assertTrue("Usuario2 debería tener el correo en recibidos", usuario2.getCorreosRecibidos().contains(correo));
+        assertTrue("Usuario1 debería tener el correo en enviados",usuario1.getSalida().contieneCorreo(correo));
+        assertTrue("Usuario2 debería tener el correo en recibidos", usuario2.getEntrada().contieneCorreo(correo));
     }
 
     @Test

@@ -14,5 +14,8 @@ public class GrupoDeUsuarios {
     public ArrayList<Usuario> getMiembros() {
         return miembros;
     }
-    
+
+    public void setMiembros(ArrayList<Usuario> miembros) {
+        this.miembros = miembros;
+    }
 }

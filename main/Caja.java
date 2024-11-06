@@ -13,8 +13,13 @@ public class Caja {
         return correos;
     }
 
-    // Método size() para obtener el número de correos
+    // metodo size() para obtener el número de correos
     public int size() {
         return correos.size();
     }
+
+    // metodo para verificar si existe el correo
+    public boolean contieneCorreo(Mail correo) {
+        return correos.contains(correo);
+    }    
 }

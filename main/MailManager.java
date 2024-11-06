@@ -40,6 +40,7 @@ public Usuario crearNuevoUsuario(String nombre, String apellido, String direccio
 public ArrayList<Usuario> getListaUsuarios() {
     return listaUsuarios;
 }
+
 public void mandarMailAGrupo(Usuario remitente, Mail correo, GrupoDeUsuarios grupo) {
     remitente.agregarCorreoAEnviados(correo);  // Agrega el correo a enviados del remitente
 

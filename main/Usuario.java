@@ -9,10 +9,10 @@ import main.interfaces.INombre;
 
 public class Usuario implements INombre, IApellido, ICorreo {
 
-    private final ArrayList<Contacto> listaDeContactos = new ArrayList<>();
-    private final Caja entrada = new Caja();
-    private final Caja salida = new Caja();
-    private final Persona persona;
+    private ArrayList<Contacto> listaDeContactos = new ArrayList<>();
+    private Caja entrada = new Caja();
+    private Caja salida = new Caja();
+    private Persona persona;
 
     public Usuario(String nombre, String apellido, String direccionCorreo) {
         persona = new Persona(nombre, apellido, direccionCorreo);
