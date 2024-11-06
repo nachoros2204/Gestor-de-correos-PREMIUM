@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -42,15 +43,24 @@ public class GrupoDeUsuariosTests {
     @Test
     public void testAgregarUsuarioExistenteAlGrupo() {
         grupo.agregarUsuarioAlGrupo(usuario1);
-        assertEquals(2,grupo.getMiembros().size());// DUDOSO "El grupo no debería duplicar usuarios ya existentes"
+        assertEquals(2,grupo.getMiembros().size());
     }
 
     @Test
     public void testMandarMailAGrupo() {
         Mail correo = new Mail("Asunto", "Contenido", "nacho@gmail.com", new ArrayList<>());
+        
+        //correo.agregar(usuario1);
+        //correo.agregar(usuario3);
+
+        //correo.agregar(grupoNumero6);
+
+        //em1.enviar(correo):
+
         mailManager.mandarMailAGrupo(usuario1, correo, grupo);
 
         assertTrue("Usuario1 debería tener el correo en enviados",usuario1.getSalida().contieneCorreo(correo));
+        assertTrue("Usuario2 debería tener el correo en recibidos", usuario1.getEntrada().contieneCorreo(correo));
         assertTrue("Usuario2 debería tener el correo en recibidos", usuario2.getEntrada().contieneCorreo(correo));
     }
 
