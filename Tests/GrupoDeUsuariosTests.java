@@ -12,7 +12,6 @@ import main.GrupoDeUsuarios;
 import main.Mail;
 import main.MailManager;
 import main.Usuario;
-import main.Caja;
 
 public class GrupoDeUsuariosTests {
     private MailManager mailManager;
@@ -24,9 +23,9 @@ public class GrupoDeUsuariosTests {
     @Before
     public void setUp() {
         mailManager = new MailManager();
-        usuario1 = mailManager.crearNuevoUsuario("Nacho", "Rosales", "john@example.com");
-        usuario2 = mailManager.crearNuevoUsuario("Lourdes", "Smith", "jane@example.com");
-        usuario3 = mailManager.crearNuevoUsuario("Juani", "Johnson", "alice@example.com");
+        usuario1 = mailManager.crearNuevoUsuario("Nacho", "Rosales", "nacho@gmail.com");
+        usuario2 = mailManager.crearNuevoUsuario("Lourdes", "Gomez", "lourdes@gmail.com");
+        usuario3 = mailManager.crearNuevoUsuario("Juani", "Gualtieri", "juani@gmail.com");
 
         grupo = new GrupoDeUsuarios ();
         grupo.agregarUsuarioAlGrupo(usuario1);
@@ -59,7 +58,7 @@ public class GrupoDeUsuariosTests {
     public void testMandarMailAGrupoConNuevoUsuario() {
         grupo.agregarUsuarioAlGrupo(usuario3);
         
-        Mail correo = new Mail("Asunto Nuevo", "Contenido Nuevo", "john@example.com", new ArrayList<>());
+        Mail correo = new Mail("Asunto Nuevo", "Contenido Nuevo", "juani@gmail.com", new ArrayList<>());
         mailManager.mandarMailAGrupo(usuario1, correo, grupo);
 
         assertTrue("Usuario3 debería tener el correo en recibidos", usuario3.getEntrada().contieneCorreo(correo));
