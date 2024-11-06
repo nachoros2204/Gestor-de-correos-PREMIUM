@@ -1,4 +1,4 @@
-package Tests;
+package tests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,10 +9,10 @@ import org.junit.Test;
 import main.Mail;
 import main.MailManager;
 import main.Usuario;
-import main.Filtros.FiltroDeMensaje;
-import main.Filtros.FiltroDeRemitente;
-import main.Filtros.FiltroDeTitulo;
-import main.Filtros.FiltroDeTituloYMensaje;
+import main.filtros.FiltroDeMensaje;
+import main.filtros.FiltroDeRemitente;
+import main.filtros.FiltroDeTitulo;
+import main.filtros.FiltroDeTituloYMensaje;
 
 public class FiltroTest {
 
