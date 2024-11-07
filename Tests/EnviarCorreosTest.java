@@ -20,7 +20,7 @@ public class EnviarCorreosTest {
         para.add("lourdesgomezsierra@gmail.com");
         para.add("juani@gmail.com");
 
-        nacho.crearMensaje(gestorCorreo, "Saludos", "Hola, ¿cómo están?", para);
+        nacho.crearMensaje(gestorCorreo, "Saludos", "Hola, ¿cómo están?", para, null);
 
         assertEquals(1, nacho.getSalida().size());
         assertEquals(1, lourdes.getEntrada().size());

@@ -80,10 +80,11 @@ public class Usuario implements INombre, IApellido, ICorreo {
         return listaDeContactos; // Método que devuelve la lista de contactos
     }
 
-    public void crearMensaje(MailManager gestorCorreo, String asunto, String mensaje, ArrayList<String> destinatarios) {
+    public void crearMensaje(MailManager gestorCorreo, String asunto, String mensaje, ArrayList<String> destinatarios, GrupoDeUsuarios grupo) {
         Mail nuevoMail = new Mail(asunto, mensaje, this.getDireccionCorreo(), destinatarios);
-        gestorCorreo.mandarMail(this, nuevoMail);  // Envía el correo a los destinatarios
+        gestorCorreo.mandarMail(this, nuevoMail, grupo);  //llama a mandarMail con grupo
     }
+    
     
     
 

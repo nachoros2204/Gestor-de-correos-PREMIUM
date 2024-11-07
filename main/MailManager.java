@@ -1,33 +1,36 @@
 package main;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MailManager {
-    private final ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    private ArrayList<GrupoDeUsuarios> listaGrupos = new ArrayList<>();
 
-public void mandarMail(Usuario remitente, Mail correo){
-    ArrayList<String> direccionesCorreo = correo.getDestinatario();
-    List<Usuario> usuariosCoinciden = buscarUsuariosPorCorreos(direccionesCorreo);
-    remitente.agregarCorreoAEnviados(correo.clonar());   //Agrega el correo a la bandeja de enviados del remitente
-
-
-    for(Usuario usuario : usuariosCoinciden){
-        usuario.agregarCorreoARecibidos(correo.clonar());    //Agrega el correo a la bandeja de recibidos del destinatario
+public void mandarMail(Usuario remitente, Mail correo, GrupoDeUsuarios grupo) {
+    //creamos una lista para almacenar todos los destinatarios
+    ArrayList<String> direccionesCorreo = new ArrayList<>(correo.getDestinatario());
+    //agregamos direcciones de los miembros del grupo, si el grupo no es nulo
+    if (grupo != null) {
+        for (Usuario usuario : grupo.getMiembros()) {
+            String direccion = usuario.getDireccionCorreo();
+            //solo agregamos si el correo aún no está en la lista
+            if (!direccionesCorreo.contains(direccion)) {
+                direccionesCorreo.add(direccion);
+            }
+        }
     }
-}
 
-private List<Usuario> buscarUsuariosPorCorreos(ArrayList<String> correos) {
-    List <Usuario> usuariosCoinciden = listaUsuarios.stream()
-    .filter(usuario -> correos.stream()
-        .anyMatch(correo -> usuario.getDireccionCorreo().equals(correo)))
-    .collect(Collectors.toList());
+    //actualizamos los destinatarios del correo
+    correo.setDestinatario(direccionesCorreo);
 
-    return usuariosCoinciden;
-}
+    //buscamos usuarios coincidentes con las direcciones
+    ArrayList<Usuario> usuariosCoinciden = buscarUsuariosPorCorreos(direccionesCorreo);
+    remitente.agregarCorreoAEnviados(correo.clonar()); // Agregar a enviados del remitente
 
-public void agregarUsuarioALaLista(Usuario nuevoUsuario) {
-    listaUsuarios.add(nuevoUsuario);
+    //entregamos el correo a cada destinatario
+    for (Usuario usuario : usuariosCoinciden) {
+        usuario.agregarCorreoARecibidos(correo.clonar());
+    }
 }
 
 public Usuario crearNuevoUsuario(String nombre, String apellido, String direccionCorreo){
@@ -36,20 +39,25 @@ public Usuario crearNuevoUsuario(String nombre, String apellido, String direccio
     return usuario;
 }
 
+private ArrayList<Usuario> buscarUsuariosPorCorreos(ArrayList<String> correos) {
+    ArrayList<Usuario> usuariosCoinciden = new ArrayList<>();
+    for (Usuario usuario : listaUsuarios) {
+        if (correos.contains(usuario.getDireccionCorreo())) {
+            usuariosCoinciden.add(usuario);
+        }
+    }
+    return usuariosCoinciden;
+}
+
+public void agregarUsuarioALaLista(Usuario nuevoUsuario) {
+    listaUsuarios.add(nuevoUsuario);
+}
+
 //Para propósitos de prueba
 public ArrayList<Usuario> getListaUsuarios() {
     return listaUsuarios;
 }
 
-public void mandarMailAGrupo(Usuario remitente, Mail correo, GrupoDeUsuarios grupo) {
-    remitente.agregarCorreoAEnviados(correo);  // Agrega el correo a enviados del remitente
-
-    for (Usuario usuario : grupo.getMiembros()) {
-        usuario.agregarCorreoARecibidos(correo);  // Agrega el correo a recibidos de cada miembro
-    }
-}
-
-private final ArrayList<GrupoDeUsuarios> listaGrupos = new ArrayList<>();
 public void agregarGrupo(GrupoDeUsuarios grupo) {
     listaGrupos.add(grupo);
 }

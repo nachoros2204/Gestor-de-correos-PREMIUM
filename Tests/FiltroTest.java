@@ -29,12 +29,12 @@ public class FiltroTest {
 
         // Crea y envia mensajes
         ArrayList<String> contactos = nacho.getTodosLosCorreosDeContactos();
-        nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Mensaje de prueba", contactos);
+        nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Mensaje de prueba", contactos, null);
         
         // Tambien envia otro mensaje con el mismo asunto
         ArrayList<String> destinatarios = new ArrayList<>();
         destinatarios.add("juani@gmail.com");
-        nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Otro mensaje", destinatarios);
+        nacho.crearMensaje(gestorCorreo, "AsuntoBuscado", "Otro mensaje", destinatarios, null);
 
         // Filtra por asunto
         FiltroDeTitulo filtro = new FiltroDeTitulo();
@@ -48,8 +48,8 @@ public class FiltroTest {
         // Crear y enviar mensajes
         ArrayList<String> destinatarios = new ArrayList<>();
         destinatarios.add("lourdesgomezsierra@gmail.com");
-        nacho.crearMensaje(gestorCorreo, "Mensaje a Lourdes", "Hola Lourdes", destinatarios);
-        nacho.crearMensaje(gestorCorreo, "Otro mensaje a Lourdes", "Chau Lourdes", destinatarios);
+        nacho.crearMensaje(gestorCorreo, "Mensaje a Lourdes", "Hola Lourdes", destinatarios, null);
+        nacho.crearMensaje(gestorCorreo, "Otro mensaje a Lourdes", "Chau Lourdes", destinatarios, null);
 
         // Filtrar por mensaje
         FiltroDeMensaje filtro = new FiltroDeMensaje();
@@ -63,11 +63,11 @@ public class FiltroTest {
         // Crear mensajes
         ArrayList<String> destinatarios1 = new ArrayList<>();
         destinatarios1.add("juani@gmail.com");
-        nacho.crearMensaje(gestorCorreo, "Mensaje", "Contenido", destinatarios1);
+        nacho.crearMensaje(gestorCorreo, "Mensaje", "Contenido", destinatarios1, null);
 
         ArrayList<String> destinatarios2 = new ArrayList<>();
         destinatarios2.add("nacho@gmail.com");
-        lourdes.crearMensaje(gestorCorreo, "Otro mensaje", "Más contenido", destinatarios2);
+        lourdes.crearMensaje(gestorCorreo, "Otro mensaje", "Más contenido", destinatarios2, null);
 
         // Filtrar por remitente
         FiltroDeRemitente filtro = new FiltroDeRemitente();
@@ -81,8 +81,8 @@ public class FiltroTest {
         // Crear mensajes
         ArrayList<String> destinatarios = new ArrayList<>();
         destinatarios.add("juani@gmail.com");
-        nacho.crearMensaje(gestorCorreo, "Asunto", "Mensaje", destinatarios);
-        lourdes.crearMensaje(gestorCorreo, "Otro", "Mensaje", destinatarios);
+        nacho.crearMensaje(gestorCorreo, "Asunto", "Mensaje", destinatarios, null);
+        lourdes.crearMensaje(gestorCorreo, "Otro", "Mensaje", destinatarios, null);
 
         // Filtrar por asunto y mensaje
         FiltroDeTituloYMensaje filtro = new FiltroDeTituloYMensaje();
