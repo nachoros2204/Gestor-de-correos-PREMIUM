@@ -6,38 +6,40 @@ public class MailManager {
     private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
     private ArrayList<GrupoDeUsuarios> listaGrupos = new ArrayList<>();
 
+public Usuario crearNuevoUsuario(String nombre, String apellido, String direccionCorreo){
+    Usuario usuario = new Usuario(nombre, apellido, direccionCorreo);
+    agregarUsuarioALaLista(usuario);
+    return usuario;
+}
+
 public void mandarMail(Usuario remitente, Mail correo, GrupoDeUsuarios grupo) {
-    //creamos una lista para almacenar todos los destinatarios
+    System.out.println("Iniciando el proceso de envío de correo");
+
     ArrayList<String> direccionesCorreo = new ArrayList<>(correo.getDestinatario());
-    //agregamos direcciones de los miembros del grupo, si el grupo no es nulo
     if (grupo != null) {
         for (Usuario usuario : grupo.getMiembros()) {
             String direccion = usuario.getDireccionCorreo();
-            //solo agregamos si el correo aún no está en la lista
             if (!direccionesCorreo.contains(direccion)) {
                 direccionesCorreo.add(direccion);
             }
         }
     }
 
-    //actualizamos los destinatarios del correo
     correo.setDestinatario(direccionesCorreo);
+    System.out.println("Destinatarios actualizados: " + direccionesCorreo);
 
-    //buscamos usuarios coincidentes con las direcciones
     ArrayList<Usuario> usuariosCoinciden = buscarUsuariosPorCorreos(direccionesCorreo);
-    remitente.agregarCorreoAEnviados(correo.clonar()); // Agregar a enviados del remitente
+    System.out.println("Usuarios coincidentes encontrados: " + usuariosCoinciden.size());
 
-    //entregamos el correo a cada destinatario
+    remitente.agregarCorreoAEnviados(correo.clonar());
+    System.out.println("Correo agregado a la bandeja de enviados del remitente");
+
     for (Usuario usuario : usuariosCoinciden) {
         usuario.agregarCorreoARecibidos(correo.clonar());
+        System.out.println("Correo agregado a la bandeja de entrada de: " + usuario.getDireccionCorreo());
     }
 }
 
-public Usuario crearNuevoUsuario(String nombre, String apellido, String direccionCorreo){
-    Usuario usuario = new Usuario(nombre, apellido, direccionCorreo);
-    agregarUsuarioALaLista(usuario);
-    return usuario;
-}
 
 private ArrayList<Usuario> buscarUsuariosPorCorreos(ArrayList<String> correos) {
     ArrayList<Usuario> usuariosCoinciden = new ArrayList<>();
