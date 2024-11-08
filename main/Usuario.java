@@ -26,6 +26,14 @@ public class Usuario implements INombre, IApellido, ICorreo {
         entrada.agregarCorreo(correo);
     }
 
+    public Caja getEntrada() {
+        return entrada;
+    }
+
+    public Caja getSalida() {
+        return salida;
+    }
+
     public void setDireccionCorreo(String direccionCorreo) {
         persona.setDireccionDeCorreo(direccionCorreo);
     }
@@ -54,14 +62,6 @@ public class Usuario implements INombre, IApellido, ICorreo {
         return persona.getApellido();
     }
 
-    public Caja getEntrada() {
-        return entrada;
-    }
-
-    public Caja getSalida() {
-        return salida;
-    }
-
     public Contacto agregarNuevoContacto(String nombre, String apellido, String direccionDeCorreo) {
         Contacto nuevoContacto = new Contacto(nombre, apellido, direccionDeCorreo);
         listaDeContactos.add(nuevoContacto);
@@ -79,14 +79,16 @@ public class Usuario implements INombre, IApellido, ICorreo {
     public ArrayList<Contacto> getListaDeContactos() {
         return listaDeContactos; // Método que devuelve la lista de contactos
     }
+    
+    public Mail crearMensaje(MailManager gestorCorreo, String asunto, String mensaje, ArrayList<String> destinatarios, GrupoDeUsuarios grupo) {
 
-    public void crearMensaje(MailManager gestorCorreo, String asunto, String mensaje, ArrayList<String> destinatarios, GrupoDeUsuarios grupo) {
+        if (destinatarios == null) {
+            destinatarios = new ArrayList<>();
+        }
         Mail nuevoMail = new Mail(asunto, mensaje, this.getDireccionCorreo(), destinatarios);
         gestorCorreo.mandarMail(this, nuevoMail, grupo);  //llama a mandarMail con grupo
+        return nuevoMail;
     }
-    
-    
-    
 
     public ArrayList<Mail> filtrarEnviados(String buscar, Filtro filtro) {
         return filtro.filtrar(buscar, salida.getTodo());
