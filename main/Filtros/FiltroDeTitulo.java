@@ -1,4 +1,4 @@
-package main.filtros;
+package main.Filtros;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;

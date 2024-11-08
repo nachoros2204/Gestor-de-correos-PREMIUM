@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class Mail {
     private String titulo;
-    private String mensaje;
-    private String remitente;
+    private final String mensaje;
+    private final String remitente;
     private ArrayList<String> destinatario = new ArrayList<>();
+    
     private boolean esFavorito;
 
     public Mail(String titulo, String mensaje, String remitente, ArrayList<String> destinatario){
@@ -19,6 +20,9 @@ public class Mail {
     public String getTitulo(){
         return titulo;
     }
+    public void setTitulo(String titulo){
+        this.titulo = titulo; 
+    }
     public String getMensaje(){
         return mensaje;
     }
@@ -28,27 +32,12 @@ public class Mail {
     public ArrayList<String> getDestinatario(){
         return destinatario;
     }
-    
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-    public void setRemitente(String remitente) {
-        this.remitente = remitente;
-    }
-    public void setEsFavorito(boolean esFavorito) {
-        this.esFavorito = esFavorito;
-    }
-    public void setTitulo(String titulo){
-        this.titulo = titulo; 
-    }
-    public void setDestinatario(ArrayList<String> destinatario) {
-        this.destinatario = destinatario;
-    }
-
     public Mail clonar() {
         return new Mail(this.titulo, this.mensaje, this.remitente, this.destinatario);
     }
 
+
+    
     // getter para saber si el correo es favorito
     public boolean esFavorito() {
         return esFavorito;
@@ -57,9 +46,6 @@ public class Mail {
     // metodo para marcar o desmarcar el correo como favorito
     public void marcarComoFavorito() {
         esFavorito = !esFavorito;
-    }
-    public boolean isEsFavorito() {
-        return esFavorito;
     }
 
 
